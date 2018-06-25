@@ -2,12 +2,11 @@
 #include <SFML/Graphics.hpp>
 
 class Cell {
-	private:
+	public:
 		bool state;
 		int x_pos, y_pos;
 		sf::RectangleShape* pointer;
 		
-	public:
 		Cell(bool alive, int x, int y, sf::RectangleShape* address) {
 			state   = alive;
 			x_pos   = x;
@@ -27,9 +26,10 @@ class Cell {
 int main(int argc, char const *argv[])
 {
 	sf::RectangleShape rectangle;
-	rectangle.setOutlineThickness(1.0);
+	rectangle.setOutlineThickness(10.0);
 	
 	Cell celulitica(true, 2, 3, &rectangle);
-	std::cout << celulitica.getRectanglePointer() << std::endl;
+
+	std::cout << celulitica.pointer->getOutlineThickness() << std::endl;	
 	return 0;
 }
