@@ -21,13 +21,13 @@ class Cluster
 		return this.size;
 	}
 
-	public Cell getCell(int xPos, int yPos)
+	public Cell getCell(int i, int j)
 	{
-		return this.matrix[xPos][yPos];
+		return this.matrix[i][j];
 	}
 
 
-	public Graphics2D initialize(Graphics g)
+	public void initialize(Graphics g)
 	{
 		Graphics2D graphic = (Graphics2D)g;
 
@@ -38,6 +38,6 @@ class Cluster
 			}
 		}
 
-		return graphic;
+		//return graphic;
 	}
 }

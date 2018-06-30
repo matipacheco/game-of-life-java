@@ -21,14 +21,14 @@ class Cell
 	{
 		this.state     = false;
 		this.color     = Color.BLACK;
-		this.rectangle = new Rectangle(xPos, yPos);
+		this.rectangle = new Rectangle(xPos, yPos, 50, 50);
 	}
 
 	public Cell(boolean state, int xPos, int yPos)
 	{
 		this.state     = state;
 		this.color     = Color.BLACK;
-		this.rectangle = new Rectangle(xPos, yPos);
+		this.rectangle = new Rectangle(xPos, yPos, 50, 50);
 	}
 
 
