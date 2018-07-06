@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/matipacheco/game-of-life#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "gojs": "^1.8.22"
   }
 }
