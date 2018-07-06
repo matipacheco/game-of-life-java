@@ -1,0 +1,22 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "Conway's Game of Life",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matipacheco/game-of-life.git"
+  },
+  "author": "Matías Pacheco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matipacheco/game-of-life/issues"
+  },
+  "homepage": "https://github.com/matipacheco/game-of-life#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
