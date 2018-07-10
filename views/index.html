@@ -5,25 +5,51 @@
 </div>
 
 <script type="text/javascript">
+	// https://javascript.info/class
+	class Cell {
+		constructor() {
+			this.state = (Math.random() >= 0.7) ? "true" : "false";
+		}
+
+		get state() {
+			return this._state;
+		}
+
+		set state(state) {
+			this._state = state;
+		}
+	}
+
 	var $ = go.GraphObject.make;
 	//var myDiagram = $(go.Diagram, "diagram", { contentAlignment: go.Spot.Center, initialAutoScale: go.Diagram.Uniform });
 	var myDiagram = $(go.Diagram, "diagram", { initialAutoScale: go.Diagram.Uniform });
-
-	//esta debiera ser la matrix de 0's y 1's
-	function Cell() {
-		var chance = Math.random();
-		var alive  = (chance >= 0.7) ? true : false;
-		this.alive = alive;
-	}
-
-	var model = $(go.Model);
+	
+	myDiagram.nodeTemplate =
+		$(go.Node, "Auto",
+		{
+			selectable: false
+		},
+		$(go.Shape, "Hexagon",
+			{
+				name: "SHAPE",
+				width: 20, height: 20,
+				strokeWidth: 4, stroke: null
+			},
+			new go.Binding("fill", "state", function(name) {
+				switch (name) {
+					case "true":  return "rgba(240, 120,  50, .6)";
+					case "false": return "rgba(240, 230, 120, .6)";
+				}
+				return "black";
+			}))
+	  );
 
 	var model_data = [];
 
-	for (var i = 0; i < 1000; i++) {
-		model_data.push(new Cell());
+	for (var i = 0; i < 100; i++) {
+		let cell = new Cell();
+		model_data.push({ key: i, state: cell.state });
 	}
-
-	model.nodeDataArray = model_data;
-	diagram.model = model;
+	console.log(model_data);
+	diagram.model = new go.Model(model_data);
 </script>
