@@ -2,12 +2,10 @@ class Game
 {
 	public static void main(String[] args)
 	{
-		int size = 10;
+		int size = 10, awakeNeighbors;
 		
 		Cluster cluster = new Cluster(size);
 		cluster.initializeCluster();
-		
-		int awakeNeighbors;
 		
 		// while haya alguna celula viva?
 		
