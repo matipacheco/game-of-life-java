@@ -33,10 +33,40 @@ class Cell
 	{
 		return prosition;
 	}
+	
+	public int getxPos()
+	{
+		return getPosition().getxPos();
+	}
+	
+	public int getyPos()
+	{
+		return getPosition().getyPos();
+	}
 
 	public void setPosition(int xPos, int yPos)
 	{
 		this.prosition.setxPos(xPos);
 		this.prosition.setyPos(yPos);
+	}
+	
+	public boolean isAwakening()
+	{
+		return (this.getState() == LifeState.AWAKENING);
+	}
+
+	public boolean isAwake()
+	{
+		return (this.getState() == LifeState.AWAKE);
+	}
+	
+	public boolean isSleepy()
+	{
+		return (this.getState() == LifeState.SLEEPY);
+	}
+	
+	public boolean isAsleep()
+	{
+		return (this.getState() == LifeState.ASLEEP);
 	}
 }

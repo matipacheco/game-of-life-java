@@ -39,4 +39,9 @@ class Cluster
 			}
 		}
 	}
+	
+	public int countAwakeNeighbors(int xPos, int yPos)
+	{
+		return 0;
+	}
 }
