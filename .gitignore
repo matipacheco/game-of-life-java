@@ -20,3 +20,10 @@
 *.zip
 *.tar.gz
 *.rar
+
+/target/
+.project
+.classpath
+.settings/
+bin/
+

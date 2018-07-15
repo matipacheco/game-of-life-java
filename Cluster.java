@@ -1,6 +1,3 @@
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-
 class Cluster
 {
 	private int size;
@@ -20,24 +17,26 @@ class Cluster
 	{
 		return this.size;
 	}
+	
+	public Cell[][] getMatrix()
+	{
+		return matrix;
+	}
 
 	public Cell getCell(int i, int j)
 	{
 		return this.matrix[i][j];
 	}
-
-
-	public void initialize(Graphics g)
+	
+	public void initializeCluster()
 	{
-		Graphics2D graphic = (Graphics2D)g;
-
-		for (int row = 0; row < this.getSize(); row++) {
-			for (int column = 0; column < this.getSize(); column++) {
-				Cell cell = new Cell(row,column);
-				graphic.fill(cell.getRectangle());
+		int size        = this.getSize();
+		Cell[][] matrix = this.getMatrix();
+		
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				matrix[i][j] = new Cell(i, j);
 			}
 		}
-
-		//return graphic;
 	}
 }
