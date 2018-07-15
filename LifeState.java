@@ -5,6 +5,16 @@ public enum LifeState
 {
 	AWAKENING, AWAKE, SLEEPY, ASLEEP;
 	
+	private LifeState nextState;
+
+	static
+	{
+		AWAKENING.nextState = AWAKE;
+		AWAKE.nextState     = SLEEPY;
+		SLEEPY.nextState    = ASLEEP;
+		ASLEEP.nextState    = AWAKENING;
+	}
+	
 	public static ArrayList<LifeState> getTerminalStates()
 	{
 		ArrayList<LifeState> terminalStates = new ArrayList<LifeState>();
@@ -27,5 +37,10 @@ public enum LifeState
 		ArrayList<LifeState> states = LifeState.getTerminalStates();
 		
 		return states.get(random.nextInt(states.size()));
+	}
+	
+	public LifeState getNextState()
+	{
+		return nextState;
 	}
 }
