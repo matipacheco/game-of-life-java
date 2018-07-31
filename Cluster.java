@@ -40,8 +40,32 @@ class Cluster
 		}
 	}
 	
-	public int countAwakeNeighbors(int xPos, int yPos)
+	public int countAwakeNeighbors(Cell cell)
 	{
-		return 0;
+		int neighbors = 0;
+		
+		int xPos = cell.getxPos();
+		int yPos = cell.getyPos();
+		
+		int startxPos = (xPos - 1 < 0) ? xPos : xPos - 1;
+		int startyPos = (yPos - 1 < 0) ? yPos : yPos - 1;
+		int endxPos   = (xPos + 1 > this.getSize() - 1) ? xPos : xPos + 1;
+		int endyPos   = (yPos + 1 > this.getSize() - 1) ? yPos : yPos + 1;
+		
+		for (int i = startxPos; i <= endxPos; i++) {
+			for (int j = startyPos; j <= endyPos; j++) {
+				
+				if (i == xPos && j == yPos) { continue; } // ignore the cell itself
+				
+				Cell neighbor = this.getCell(i, j);
+				
+				if (neighbor.isAwake()) {
+					neighbors++;
+				}
+				
+			}
+		}
+		
+		return neighbors;
 	}
 }
